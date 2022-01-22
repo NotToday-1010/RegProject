@@ -1,10 +1,11 @@
-import Post from "./Post.js"
+const Post  = require ("./Post.js")
 
 class PostController {
     async create(req, res) {
         try {
             const post = await req.body
-            const createdPost = await Post.create(...post)
+            const createdPost = await Post.create({...post})
+            await createdPost.save()
             res.json(createdPost)
         } catch (e) {
             res.status(500).json(e.message)
@@ -21,6 +22,15 @@ class PostController {
             res.status(500).json(e.message)
         }
     }
+
+    async getAll(req, res) {
+        try {
+            const posts = await Post.find()
+            return res.json(posts)
+        } catch (e) {
+            res.status(500).json(e.message)
+        }
+    }
 }
 
-export default new PostController();
+module.exports = new PostController();

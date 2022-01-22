@@ -1,9 +1,10 @@
 const  Router  = require("express")
-import PostController from'./Posts/PostControllers.js'
+const PostController = require('./Controllers/PostControllers.js')
 
 const router = Router()
 
-router.post('/users', PostController.create)
+router.post('/user/registration', PostController.create)
+router.get('/users', PostController.getAll)
 router.delete('/users/:id', PostController.delete)
 
-export default router
+module.exports = router

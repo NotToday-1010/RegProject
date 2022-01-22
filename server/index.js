@@ -3,12 +3,10 @@ const DB_URL = 'mongodb+srv://user:user@cluster0.vzxql.mongodb.net/myFirstDataba
 
 const express = require( 'express')
 const mongoose = require( 'mongoose')
-import router from './router'
+const router  = require ('./router.js')
 const cors = require ('cors')
 
 const app = express()
-
-
 
 app.use(cors())
 app.use(express.json())

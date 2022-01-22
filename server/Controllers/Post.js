@@ -5,4 +5,4 @@ const Post = new mongoose.Schema({
     age: {type: String, required: true}
 })
 
-export default mongoose.model('Post', Post)
+module.exports =  mongoose.model('Post', Post)
