@@ -37,7 +37,7 @@ function App() {
             console.log(users)
             console.log(data)
         }
-        fetchUsers()
+        fetchUsers().then()
     }, [])
     return (
         <div className="App">
